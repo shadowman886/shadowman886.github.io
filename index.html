@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<head>
+
+<!-- Meta Tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>SuiBi Studio</title>   
+
+<meta name="description" content="Insert Your Site Description" /> 
+
+<!-- Mobile Specifics -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="MobileOptimized" content="320"/>   
+
+<!-- Mobile Internet Explorer ClearType Technology -->
+<!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
+
+<!-- Bootstrap -->
+<link href="_include/css/bootstrap.min.css" rel="stylesheet">
+<!-- Main Style -->
+<link href="_include/css/main.css" rel="stylesheet">
+<!-- Supersized -->
+<link href="_include/css/supersized.css" rel="stylesheet">
+<link href="_include/css/supersized.shutter.css" rel="stylesheet">
+
+<!-- FancyBox -->
+<link href="_include/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+
+<!-- Font Icons -->
+<link href="_include/css/fonts.css" rel="stylesheet">
+
+<!-- Shortcodes -->
+<link href="_include/css/shortcodes.css" rel="stylesheet">
+
+<!-- Responsive -->
+<link href="_include/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="_include/css/responsive.css" rel="stylesheet">
+
+<!-- Supersized -->
+<link href="_include/css/supersized.css" rel="stylesheet">
+<link href="_include/css/supersized.shutter.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
+
+<!-- Fav Icon -->
+<link rel="shortcut icon" href="#">
+
+<link rel="apple-touch-icon" href="#">
+<link rel="apple-touch-icon" sizes="114x114" href="#">
+<link rel="apple-touch-icon" sizes="72x72" href="#">
+<link rel="apple-touch-icon" sizes="144x144" href="#">
+
+<!-- Modernizr -->
+<script src="_include/js/modernizr.js"></script>
+
+<!-- Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'Insert Your Code']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- End Analytics -->
+
+</head>
+
+
+<body>
+
+<!-- This section is for Splash Screen -->
+<div class="ole">
+<section id="jSplash">
+	<div id="circle"></div>
+</section>
+</div>
+<!-- End of Splash Screen -->
+
+
+
+<header>
+    <div class="sticky-nav">
+        <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+        
+        <div id="logo">
+            <a id="goUp" href="#" title="Brushed | Responsive One Page Template">SuiBi Studio</a>
+        </div>
+        
+        <nav id="menu">
+            <ul id="menu-nav">
+                <li class="current"><a href="#home-slider">Home</a></li>
+                <li><a href="#work">My Work</a></li>
+                 <li><a href="#Service">Service</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+    </div>
+</header>
+
+<div id="PHead" class="page-alternate">
+<script src="processing.js"></script>
+<!--<canvas data-processing-sources="processing/SuiBi/SuiBi.pde"></canvas>-->
+
+<script type="text/processing" data-processing-target="processing-canvas">
+
+
+boolean onoff[] = new boolean[13];
+void setup(){
+
+  size(900,400,P3D);
+//background(#26292E);
+for(int i=0;i<13;i++){
+onoff[i]=true;
+
+}
+
+}
+int logo_X,logo_Y;
+int adjy=0;
+int inS;
+boolean setON=true;
+void draw(){
+  //println(mouseX);
+
+  /*
+  
+ if(setON){
+  inS=(int)random(mouseX%13);
+  onoff[inS]=! onoff[inS]; 
+ }else{
+ 
+ }
+ */
+  
+  background(#26292E);
+  adjy=70;
+  stroke(#DE5E60);
+  
+  strokeWeight(3);
+  
+  /*
+  line(450,0,450,400);
+  line(0,200,900,200);*/
+// translate(mouseX,mouseY);
+  drawS(240,100+adjy);
+  drawU(270,200+adjy);
+  drawI(400,200+adjy);
+  drawB(550,200+adjy);
+  drawI(660,200+adjy);
+  
+ if(frameCount%10==0) for(int i=0;i<13;i++)onoff[i]=true;
+  
+  }
+  
+  
+
+
+
+float z=0;
+void drawS(int x,int y)
+{  
+  int xr=5,yr=5;
+  int FZ=10;
+  int cs=5;
+  
+
+  pushMatrix();
+// translate(300,0,0);
+// rotateY(z+=0.01);
+  // strokeWeight(3);
+
+ if(onoff[0])line(x,y,x-xr*FZ,y-yr*FZ); 
+ if(onoff[1])line(x-(-xr*FZ)-FZ*10,y-yr*FZ,x-FZ*10,y);
+ if(onoff[2])line(x-FZ*10,y,x-(xr*FZ*-1)-FZ*10,y-(yr*FZ*-1));
+ if(onoff[3])line(x-(-xr*FZ)-FZ*10,y-yr*FZ+FZ*10,x-FZ*10,y+FZ*10);
+ if(onoff[4])line(x-(-xr*FZ)-FZ*20,y-yr*FZ+FZ*10,x-FZ*10,y+FZ*10);
+ 
+ 
+ 
+  //strokeWeight(1);
+  //fill(200);
+  ellipse(x,y,cs,cs);
+  ellipse(x-xr*FZ,y-yr*FZ,cs,cs);
+  ellipse(x-(xr*FZ*-1)-FZ*10,y-(yr*FZ*-1),cs,cs);
+  ellipse(x-FZ*10,y,cs,cs);
+  ellipse(x-(-xr*FZ)-FZ*20,y-yr*FZ+FZ*10,cs,cs);
+  ellipse(x-FZ*10,y+FZ*10,cs,cs);
+  
+  popMatrix();
+
+}
+
+void drawU(int x, int y){
+  int FZ=10;
+  int cs=5;
+  
+  
+
+  
+ if(onoff[5])line(x+FZ*10,y,x,y);
+ if(onoff[6])line(x+FZ*10,y,x+FZ*10,y-FZ*15);
+ if(onoff[7])line(x,y,x,y-FZ*15);
+  
+  ellipse(x+FZ*10,y,cs,cs);
+  ellipse(x,y,cs,cs);
+  ellipse(x+FZ*10,y-FZ*15,cs,cs);
+  ellipse(x,y-FZ*15,cs,cs);
+
+
+}
+
+void drawB(int x,int y){
+  int cs=5;
+  
+  noFill();
+  
+
+
+  if(onoff[8]) rect(x-20,y-150,50,50);
+  if(onoff[9])rect(x-20,y-100,100,100);
+  
+  
+  fill(255);
+  
+  ellipse(x-20,y-150,cs,cs);
+  ellipse(x-20,y,cs,cs);
+  ellipse(x+80,y,cs,cs);
+  ellipse(x+30,y-100,cs,cs);
+  ellipse(x-20,y-100,cs,cs);
+  ellipse(x+80,y-100,cs,cs);
+  ellipse(x+30,y-150,cs,cs);
+
+
+}
+
+void mouseMoved(){
+inS=(int)random(13);
+  onoff[inS]=! onoff[inS]; 
+}
+
+
+void drawI(int x,int y){
+  
+  int FZ=10;
+  int cs=5;
+
+
+ if(onoff[10])  line(x+FZ*10,y,x,y);
+ if(onoff[11]) line(x+FZ*5,y,x+FZ*5,y-FZ*15);
+ if(onoff[12])line(x+FZ*10,y-FZ*15,x,y-FZ*15);
+  
+  ellipse(x+FZ*10,y,cs,cs);
+  ellipse(x,y,cs,cs);
+  ellipse(x+FZ*5,y,cs,cs);
+  ellipse(x+FZ*5,y-FZ*15,cs,cs);
+  ellipse(x+FZ*10,y-FZ*15,cs,cs);
+  ellipse(x,y-FZ*15,cs,cs);
+  
+  
+}
+
+
+
+
+
+
+</script>
+
+
+<canvas id="processing-canvas" vertical-align : middle;> </canvas>
+
+
+
+</div>
+
+
+
+
+
+<!-- Homepage Slider -->
+<!--
+
+<div id="home-slider">	
+    <div class="overlay"></div>
+
+    <div class="slider-text">
+    	<div id="slidecaption"></div>
+    </div>   
+	
+	<div class="control-nav">
+        <a id="prevslide" class="load-item"><i class="font-icon-arrow-simple-left"></i></a>
+        <a id="nextslide" class="load-item"><i class="font-icon-arrow-simple-right"></i></a>
+        <ul id="slide-list"></ul>
+        <a id="nextsection" href="#work"><i class="font-icon-arrow-simple-down"></i></a>
+    </div>
+</div>
+
+-->
+<!-- End Homepage Slider -->
+
+
+
+
+
+
+
+<!-- Header -->
+
+<!-- End Header -->
+
+
+
+
+
+
+
+<!-- Our Work Section -->
+<div id="work" class="page">
+	<div class="container">
+    	<!-- Title Page -->
+        <div class="row">
+            <div class="span12">
+                <div class="title-page">
+                    <h2 class="title">My Work</h2>
+                    <h3 class="title-description">Check Out Our Projects on <a href="#">Dribbble</a>.</h3>
+                </div>
+            </div>
+        </div>
+        <!-- End Title Page -->
+        
+        <!-- Portfolio Projects -->
+        <div class="row">
+        	<div class="span3">
+            	<!-- Filter -->
+                <nav id="options" class="work-nav">
+                    <ul id="filters" class="option-set" data-option-key="filter">
+                    	<li class="type-work">Type of Work</li>
+                        <li><a href="#filter" data-option-value="*" class="selected">All Projects</a></li>
+
+                        <li><a href="#filter" data-option-value=".game">Game</a></li>
+                        <li><a href="#filter" data-option-value=".APP">Application</a></li>
+                        <li><a href="#filter" data-option-value=".digitalArt">Digital Art</a></li>
+                         <li><a href="#filter" data-option-value=".WIP">Work in Progress</a></li>
+                        <li><a href="#filter" data-option-value=".WS">Work Shop</a></li>
+                    </ul>
+                </nav>
+                <!-- End Filter -->
+            </div>
+            
+            <div class="span9">
+            	<div class="row">
+                	<section id="projects">
+                    	<ul id="thumbs">
+
+
+
+
+                            
+              <!-- Item Project and Filter Name -->
+                          <li class="item-thumbs span3 game">
+                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                              <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Dark" href="RuneDungeon.html">
+                                  <span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                                <!-- Thumb Image and Description -->
+                                <img src="Project/RuneDungeon/RuneDungeon_thumbs/1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                            </li>
+                          <!-- End Item Project -->
+
+                        
+
+                                        <!-- Item Project and Filter Name -->
+                          <li class="item-thumbs span3 design game">
+                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                              <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="SOM.html">
+                                  <span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+
+                                <img src="Project/SOM/SOM_thumbs/1.jpg" alt="">
+                           
+                            </li>
+                          <!-- End Item Project -->
+        <!-- Item Project and Filter Name -->
+                          <li class="item-thumbs span3 game">
+                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                              <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Sea" href="ADA.html">
+                                  <span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                                <!-- Thumb Image and Description -->
+                                <img src="Project/ADA/ADA_thumbs/1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                            </li>
+                            
+							<!-- Item Project and Filter Name -->
+
+
+
+
+                        	<li class="item-thumbs span3 digitalArt">
+                            	<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Office" href="StoneySkyLantern.html">
+                                	<span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                                <!-- Thumb Image and Description -->
+                                <img src="Project/SkyLentern/SkyLentern_thumbs/3.jpg" alt="oooooo">
+                            </li>
+
+
+
+                        	<!-- End Item Project -->
+                            
+							<!-- Item Project and Filter Name -->
+                        	<li class="item-thumbs span3 digitalArt">
+                            	<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="Cytransystem.html">
+                                	<span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                                <!-- Thumb Image and Description -->
+                                <img src="Project/Cytransystem/Cytransystem_thumbs/1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                            </li>
+                        	<!-- End Item Project -->
+                            
+
+							<!-- Item Project and Filter Name -->
+                        	<li class="item-thumbs span3 digitalArt">
+                            	<!-- Fancybox Media - Gallery Enabled - Title - Link to Video riffink-->
+                            	<a class="hover-wrap fancybox-media" data-fancybox-group="video" title="Video Content From Vimeo" href="riffink.html">
+                                	<span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                                <!-- Thumb Image and Description -->
+                                <img src="Project/inkriff/inkriff_thumbs/1.jpg" alt="">
+                            </li>
+                        	<!-- End Item Project -->
+
+
+                        <li class="item-thumbs span3 APP">
+                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                              <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Beach" href="ChinaTenden.html">
+                                  <span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                                <!-- Thumb Image and Description -->
+                                <img src="Project/ChinaTenden/ChinaTenden_thumbs/1.png" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                            </li>
+
+
+                            
+			
+                        	<!-- End Item Project -->
+                            
+							<!-- Item Project and Filter Name -->
+                        	<li class="item-thumbs span3 photography">
+                            	<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Clouds" href="_include/img/work/full/image-05-full.jpg">
+                                	<span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                                <!-- Thumb Image and Description -->
+                                <img src="_include/img/work/thumbs/image-05.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                            </li>
+                        	<!-- End Item Project -->
+                            
+							<!-- Item Project and Filter Name -->
+                        	<li class="item-thumbs span3 photography">
+                            	<!-- Fancybox Media - Gallery Enabled - Title - Link to Video -->
+                            	<a class="hover-wrap fancybox-media" data-fancybox-group="video" title="Video Content From Vimeo" href="http://vimeo.com/50834315">
+                                	<span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                                <!-- Thumb Image and Description -->
+                                <img src="_include/img/work/thumbs/image-09.jpg" alt="Vllllllllllllllllll">
+                            </li>
+                        	<!-- End Item Project -->
+
+                            
+							<!-- Item Project and Filter Name -->
+           
+                        	<!-- End Item Project -->
+                        </ul>
+                    </section>
+                    
+            	</div>
+            </div>
+        </div>
+        <!-- End Portfolio Projects -->
+    </div>
+</div>
+<!-- End Our Work Section -->
+
+
+
+<div id="Service" class="page-alternate">
+<div class="container">
+    <!-- Title Page -->
+    <div class="row">
+        <div class="span12">
+            <div class="title-page">
+                <h2 class="title">Service</h2>
+                <h3 class="title-description">Interactive Programe Designer</h3>
+            </div>
+        </div>
+    </div>
+    <!-- End Title Page -->
+    <!-- People -->
+    <div class="row">
+        
+        <div class="span4 profile">
+            <div class="image-wrap">
+        
+                <img src="_include/img/profile/profile-03.jpg" alt="Joshua Insanus">
+
+            </div>
+            <h3 class="profile-name">Mobile Application</h3>
+            <p class="profile-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat <a href="#">hendrerit dictum</a>. 
+            Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+        </div>
+
+        <div class="span4 profile">
+            <div class="image-wrap">
+                <img src="_include/img/ixd_servece.png" alt="Joshua Insanus">
+            </div>
+            <h3 class="profile-name">Interactive Installation</h3>
+            <p class="profile-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat <a href="#">hendrerit dictum</a>. 
+            Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                
+
+        </div>
+
+                <div class="span4 profile">
+            <div class="image-wrap">
+        
+                <img src="_include/img/Game_servece.png" alt="Joshua Insanus">
+            </div>
+            <h3 class="profile-name">Game Develope</h3>
+            <p class="profile-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat <a href="#">hendrerit dictum</a>. 
+            Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                
+        </div>
+
+
+        <!-- End Profile -->
+        
+    </div>
+    <!-- End People -->
+</div>
+</div>
+<!-- End About Section -->
+
+
+
+<!-- About Section -->
+<div id="about" class="page">
+<div class="container">
+    <!-- Title Page -->
+    <div class="row">
+        <div class="span12">
+            <div class="title-page">
+                <h2 class="title">About Me</h2>
+                <h3 class="title-description">Interactive Program Designer</h3>
+            </div>
+        </div>
+    </div>
+    <!-- End Title Page -->
+    <!-- People -->
+    <div class="row">
+    	<div class="span4 profile">
+           <h3 class="profile-name">Che-Chuan Suibi Weng</h3>
+        	<div class="image-wrap">
+                <img src="_include/img/profile/me.jpg" alt="SuiBi">
+            </div>
+         
+            <p class="profile-description">
+             Welcome to my studio! I am a interactive program designer.I received B.S. in Computer Science from Tatung University(Taiwan) and M.S. in  
+             Interactive Design from National Taipei University of Technology(Taiwan).My research interests lie in the general area of Human-Computer Interaction including Tangible Interaction , Virtual Reality/Augumented Reality ,Game develope,User Expeirence , Interactive Installation ,and Digital Art.
+
+            </p>
+            	
+            <div class="social">
+            	<ul class="social-icons">
+                	
+                    <li><a href="#"><i class="font-icon-social-github"></i></a></li>
+                    <li><a href="https://www.facebook.com/anderson.wong.984"><i class="font-icon-social-facebook"></i></a></li>
+                  
+                </ul>
+            </div>
+        </div>
+
+        <div class="span4 profile">
+            <h3 class="profile-name">Education</h3>
+            <p class="profile-description">
+               2008 ~ 2012 Tatung University,Taipei,Taiwan  B.S.,Computer Science and Engineering </br>
+               2012 ~ 2014 National Taipei University of Technology,Taipei,Taiwan</br>M.S.,Interaction Design</br>
+            </p>
+            <h3 class="profile-name">Experince</h3>
+               <p class="profile-description">
+               2013 ~ 2014 Stony inc. ,Taipei</br>interactive installation designer </br>
+               2014 ~ 2015 FuterWard,Taipei </br>Intern</br>
+               2014.7 2014 OpenHCI </br>Teacher Assistant and Demostration
+            </p>
+        </div>
+
+
+
+        <div class="span4 profile">
+            <h3 class="profile-name">Adward</h3>
+            <p class="profile-description">
+              
+
+            </p>
+
+
+            <h3 class="profile-name">Publication</h3>
+
+               <p class="profile-description">
+              
+            </p>
+        </div>
+
+
+
+
+        <!-- End Profile -->
+        
+    </div>
+    <!-- End People -->
+</div>
+</div>
+<!-- End About Section -->
+
+
+
+
+
+<!-- Contact Section -->
+<div id="contact" class="page-alternate">
+<div class="container">
+    <!-- Title Page -->
+    <div class="row">
+        <div class="span12">
+            <div class="title-page">
+                <h2 class="title">Get in Touch</h2>
+                <h3 class="title-description">I'm currently accepting new client projects.I'm at your service</h3>
+            </div>
+        </div>
+    </div>
+    <!-- End Title Page -->
+    
+    <!-- Contact Form -->
+    <div class="row">
+    	<div class="span9">
+        
+        	<form id="contact-form" class="contact-form" action="#">
+            	<p class="contact-name">
+            		<input id="contact_name" type="text" placeholder="Full Name" value="" name="name" />
+                </p>
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Email Address" value="" name="email" />
+                </p>
+                <p class="contact-message">
+                	<textarea id="contact_message" placeholder="Your Message" name="message" rows="15" cols="40"></textarea>
+                </p>
+                <p class="contact-submit">
+                	<a id="contact-submit" class="submit" href="#">Send Your Email</a>
+                </p>
+                
+                <div id="response">
+                
+                </div>
+            </form>
+         
+        </div>
+        
+        <div class="span3">
+        	<div class="contact-details">
+        		<h3>Contact Details</h3>
+                <ul>
+                    <li><a href="#">someone866@hotmail.com</a></li>
+                    <li>(+886) 972-215-266</li>
+                    <li>
+                        SuiBi Studio
+                        <br>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact Form -->
+</div>
+</div>
+<!-- End Contact Section -->
+
+
+
+
+<!--
+Twitter Feed 
+<div id="twitter-feed" class="page-alternate">
+	<div class="container">
+    	<div class="row">
+            <div class="span12">
+                <div class="follow">
+                    <a href="https://twitter.com/Bluxart" title="Follow Me on Twitter" target="_blank"><i class="font-icon-social-twitter"></i></a>
+                </div>
+                    
+                <div id="ticker" class="query"> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<!-- End Twitter Feed -->
+
+
+<!--
+<div id="social-area" class="page">
+	<div class="container">
+    	<div class="row">
+            <div class="span12">
+                <nav id="social">
+                    <ul>
+                        <li><a href="https://twitter.com/Bluxart" title="Follow Me on Twitter" target="_blank"><span class="font-icon-social-twitter"></span></a></li>
+                        <li><a href="http://dribbble.com/Bluxart" title="Follow Me on Dribbble" target="_blank"><span class="font-icon-social-dribbble"></span></a></li>
+                        <li><a href="http://forrst.com/people/Bluxart" title="Follow Me on Forrst" target="_blank"><span class="font-icon-social-forrst"></span></a></li>
+                        <li><a href="http://www.behance.net/alessioatzeni" title="Follow Me on Behance" target="_blank"><span class="font-icon-social-behance"></span></a></li>
+                        <li><a href="https://www.facebook.com/Bluxart" title="Follow Me on Facebook" target="_blank"><span class="font-icon-social-facebook"></span></a></li>
+                        <li><a href="https://plus.google.com/105500420878314068694" title="Follow Me on Google Plus" target="_blank"><span class="font-icon-social-google-plus"></span></a></li>
+                        <li><a href="http://www.linkedin.com/in/alessioatzeni" title="Follow Me on LinkedIn" target="_blank"><span class="font-icon-social-linkedin"></span></a></li>
+                        <li><a href="http://themeforest.net/user/Bluxart" title="Follow Me on ThemeForest" target="_blank"><span class="font-icon-social-envato"></span></a></li>
+                        <li><a href="http://zerply.com/Bluxart/public" title="Follow Me on Zerply" target="_blank"><span class="font-icon-social-zerply"></span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+-->
+<!-- End Socialize -->
+
+<!-- Footer -->
+<footer>
+	<p class="credits">&copy;2013 Brushed. <a href="http://themes.alessioatzeni.com/html/brushed/" title="Brushed | Responsive One Page Template">Brushed Template</a> by <a href="http://www.alessioatzeni.com/" title="Alessio Atzeni | Web Designer &amp; Front-end Developer">Alessio Atzeni</a></p>
+</footer>
+<!-- End Footer -->
+
+<!-- Back To Top -->
+<a id="back-to-top" href="#">
+	<i class="font-icon-arrow-simple-up"></i>
+</a>
+<!-- End Back to Top -->
+
+
+<!-- Js -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- jQuery Core -->
+<script src="_include/js/bootstrap.min.js"></script> <!-- Bootstrap -->
+<script src="_include/js/supersized.3.2.7.min.js"></script> <!-- Slider -->
+<script src="_include/js/waypoints.js"></script> <!-- WayPoints -->
+<script src="_include/js/waypoints-sticky.js"></script> <!-- Waypoints for Header -->
+<script src="_include/js/jquery.isotope.js"></script> <!-- Isotope Filter -->
+<script src="_include/js/jquery.fancybox.pack.js"></script> <!-- Fancybox -->
+<script src="_include/js/jquery.fancybox-media.js"></script> <!-- Fancybox for Media -->
+<script src="_include/js/jquery.tweet.js"></script> <!-- Tweet -->
+<script src="_include/js/plugins.js"></script> <!-- Contains: jPreloader, jQuery Easing, jQuery ScrollTo, jQuery One Page Navi -->
+<script src="_include/js/main.js"></script> <!-- Default JS -->
+<script src="_include/js/processing.min 2.js"></script>
+<!-- End Js -->
+
+</body>
+</html>
